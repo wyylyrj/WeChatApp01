@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class='index-container'>
+  <image class='logo' src='../images/logo.png'></image>
+  <text class='username'>hello,yrj</text>
+  <view class='btn' bindtap='goNewsTap'>
+    <text>和音乐一起分享时光</text>
+  </view>
+</view>
+
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
