@@ -1,13 +1,14 @@
 {
   "pages":[
+    "pages/news/news",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/news/news"
+    "pages/news/news-detail/news-detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#109D5D",
     "navigationBarTitleText": "蓝莓派",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white"
   }
 }

@@ -1,4 +1,5 @@
 <!--pages/news/news.wxml-->
+<import src='news-template/news-template.wxml'/>
 <view class='news-container'>
   <swiper indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' circular='{{circular}}'>
     <swiper-item>
@@ -11,4 +12,9 @@
       <image src='../images/banner3.jpg'></image>
     </swiper-item>
   </swiper>
+  <block wx:for='{{useData}}' wx:for-item='item' wx:key='key'>
+    <view bindtap='goNewsDetail' data-newsid='{{item.newsid}}'>
+      <template is='newsTemplate' data='{{...item}}'/>    
+    </view>
+  </block>
 </view>

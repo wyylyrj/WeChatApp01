@@ -1,4 +1,5 @@
 // pages/news/news.js
+var newsData = require('../data/newsdata.js')
 Page({
 
   /**
@@ -11,11 +12,20 @@ Page({
     circular: true
   },
 
+  goNewsDetail:function(event) {
+    var newsid = event.currentTarget.dataset.newsid
+    wx.navigateTo({
+      url: '../news/news-detail/news-detail?newsid='+newsid,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      useData:newsData.initData
+    })
   },
 
   /**

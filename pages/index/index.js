@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   goNewsTap: function (event) {
-    wx:wx.navigateTo({
+    wx.navigateTo({
       url: '../news/news',
     })
   },
