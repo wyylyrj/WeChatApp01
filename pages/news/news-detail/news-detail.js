@@ -110,36 +110,23 @@ Page({
 
   playerMusicTap: function(event) {
     var that = this;
-    console.log('111');
-    //没有在播放
-    wx.playBackgroundAudio({
-      dataUrl: newsData.initData[that.data.newsid].music.url,
-      title: newsData.initData[that.data.newsid].music.title,
-      coverImgUrl: newsData.initData[that.data.newsid].music.coverImg
-    })
-    //播放音乐应该判断当前音乐是否在播放
-    wx.getBackgroundAudioPlayerState({
-      success: function(res) {
-        var status = res.status;
-        console.log(status);
-        if (status != 1) {
-          //没有在播放
-          wx.playBackgroundAudio({
-            dataUrl: newsData.initData[that.data.newsid].music.url,
-            title: newsData.initData[that.data.newsid].music.title,
-            coverImgUrl: newsData.initData[that.data.newsid].music.coverImg
-          })
-          that.setData({
-            isPlayer: true
-          })
-        } else {
-          wx.pauseBackgroundAudio();
-          that.setData({
-            isPlayer: false
-          })
-        }
-      }
-    })
+    var status = this.data.isPlayer;
+    const backgroundAudioManager = wx.getBackgroundAudioManager();
+    if (!status) {
+      backgroundAudioManager.title = newsData.initData[that.data.newsid].music.title;
+      backgroundAudioManager.epname = newsData.initData[that.data.newsid].music.title;
+      backgroundAudioManager.singer = 'abc'
+      backgroundAudioManager.coverImgUrl = newsData.initData[that.data.newsid].music.coverImg;
+      // 设置了 src 之后会自动播放
+      backgroundAudioManager.src = newsData.initData[that.data.newsid].music.url;
+      this.setData({
+        isPlayer: true
+      })
+    }else{
+      backgroundAudioManager.pause();
+      this.setData({
+        isPlayer: false
+      })
+    }
   }
-
 })

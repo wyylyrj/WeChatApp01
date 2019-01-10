@@ -31,7 +31,7 @@ var initData = [{
     "articleLikeIconFX": "../images/fx.png",
     "articleLikeSC": "30",
     "music": {
-      "url": "http://iwen.wiki/sxtstu/music/sgbl.mp3",
+      "url": "http://dl.stream.qqmusic.qq.com/M5000035Mgju1qZKk7.mp3?vkey=5A186217D30C8DDF58540153D11BDA8E414F58ADDFDD89BA33CCCE4CC0548C94A8A5911736A895722E03C6174179F593A80E3FFB3EB76DF1&guid=5150825362&fromtag=1",
       "title": "时光不老,我们不散",
       "coverImg": ""
     }
@@ -50,7 +50,7 @@ var initData = [{
     "articleLikeIconFX": "../images/fx.png",
     "articleLikeSC": "30",
     "music": {
-      "url": "http://iwen.wiki/sxtstu/music/sgbl.mp3",
+      "url": "http://dl.stream.qqmusic.qq.com/M5000035Mgju1qZKk7.mp3?vkey=5A186217D30C8DDF58540153D11BDA8E414F58ADDFDD89BA33CCCE4CC0548C94A8A5911736A895722E03C6174179F593A80E3FFB3EB76DF1&guid=5150825362&fromtag=1",
       "title": "时光不老,我们不散",
       "coverImg": ""
     }
