@@ -8,7 +8,7 @@
       <image src='../images/banner2.jpg'></image>
     </swiper-item>
     <swiper-item>
-      <image src='../images/banner2.jpg'></image>
+      <image src='../images/banner3.jpg'></image>
     </swiper-item>
   </swiper>
 </view>
