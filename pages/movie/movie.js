@@ -1,4 +1,6 @@
 // pages/movie/movie.js
+var app = getApp();
+
 Page({
 
   /**
@@ -12,7 +14,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.doubanUrl);
+    var inTheaters = app.globalData.doubanUrl + '/v2/movie/in_theaters?start=0&count=3';
+    var comingSoon = app.globalData.doubanUrl + '/v2/movie/coming_soon?start=0&count=3';
+    var top250 = app.globalData.doubanUrl + '/v2/movie/top250?start=0&count=3';
+    this.http(inTheaters, this.callback);
+    this.http(comingSoon, this.callback);
+    this.http(top250, this.callback);
+  },
 
+  http: function (url,callback) {
+    wx.request({
+      url:  url,
+      header: {
+        'content-type': 'application/xml'
+      },
+      success: function (res) {
+        callback(res.data);
+      }
+    })    
+  },
+
+  callback: function(res) {
+    console.log(res);
   },
 
   /**

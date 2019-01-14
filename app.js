@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    doubanUrl: 'https://douban.uieee.com',
+    doubanUrlo: 'https://api.douban.com'
   }
 })
