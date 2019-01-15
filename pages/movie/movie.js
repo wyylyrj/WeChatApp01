@@ -1,5 +1,6 @@
 // pages/movie/movie.js
 var app = getApp();
+var utils = require('../util/utils.js')
 
 Page({
 
@@ -18,25 +19,51 @@ Page({
     var inTheaters = app.globalData.doubanUrl + '/v2/movie/in_theaters?start=0&count=3';
     var comingSoon = app.globalData.doubanUrl + '/v2/movie/coming_soon?start=0&count=3';
     var top250 = app.globalData.doubanUrl + '/v2/movie/top250?start=0&count=3';
-    this.http(inTheaters, this.callback);
-    this.http(comingSoon, this.callback);
-    this.http(top250, this.callback);
+    this.http(inTheaters, this.callback,'inTheaters','正在热映');
+    this.http(comingSoon, this.callback, 'comingSoon', '即将上映');
+    this.http(top250, this.callback, 'top250', '排行榜');
   },
 
-  http: function (url,callback) {
+  http: function (url,callback,category,categoryName) {
     wx.request({
       url:  url,
       header: {
         'content-type': 'application/xml'
       },
       success: function (res) {
-        callback(res.data);
+        callback(res.data, category, categoryName);
       }
     })    
   },
 
-  callback: function(res) {
+  callback: function (res, category, categoryName) {
     console.log(res);
+    var movies= [];
+    for(var idx in res.subjects){
+      var subject = res.subjects[idx];
+      var title = utils.cutTitleString(subject.title,0,6);
+      var temp ={
+        coverageUrl: subject.images.large,
+        star: utils.convertToStarsArray(subject.rating.stars),
+        average: subject.rating.average,
+        movieid: subject.id
+      }
+      movies.push(temp);
+      console.log(movies);
+    };
+    var readyData = {};
+    readyData[category] = {
+      categoryName: categoryName,
+      movies: movies
+    };
+    this.setData(readyData);
+    console.log(readyData);
+  },
+  movieMoreTap: function(event){
+    var categoryName = event.currentTarget.dataset.categoryname;
+    wx.navigateTo({
+      url: 'movie-more/movie-more?categoryname=' + categoryName,
+    })
   },
 
   /**

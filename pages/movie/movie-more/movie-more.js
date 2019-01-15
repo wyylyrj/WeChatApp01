@@ -14,7 +14,7 @@ Page({
       categoryName:categoryName
     })
 
-    var publicUrl = app.globalUrl.doubanUrl;
+    var publicUrl = app.globalData.doubanUrl;
     var allUrl = "";
     switch(options.categoryname){
       case "正在热映":

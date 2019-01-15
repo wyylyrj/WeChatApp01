@@ -4,7 +4,8 @@
     "pages/news/news",
     "pages/logs/logs",
     "pages/news/news-detail/news-detail",
-    "pages/movie/movie"
+    "pages/movie/movie",
+    "pages/movie/movie-more/movie-more"
   ],
   "window":{
     "backgroundTextStyle":"light",

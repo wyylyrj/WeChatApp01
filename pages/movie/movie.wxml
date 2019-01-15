@@ -8,9 +8,9 @@
 </view> -->
 
 <view class="movie-detail">
-    <template is="movielistTemplate"/>
-    <template is="movielistTemplate"/>
-    <template is="movielistTemplate"/>
+    <template is="movielistTemplate" data="{{...inTheaters}}"/>
+    <template is="movielistTemplate" data="{{...comingSoon}}"/>
+    <template is="movielistTemplate" data="{{...top250}}"/>
 </view>
 
 <!-- <view class="search-panel" wx:if="{{searchPanelShow}}">
